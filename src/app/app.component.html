@@ -1,0 +1,478 @@
+<header>
+  <div class="row">
+
+    <div class="top-bar">
+      <a class="menu-toggle" href="#"><span>Menu</span></a>
+
+      <div class="logo">
+        <a href="index.html">andy luya</a>
+      </div>
+
+      <nav id="main-nav-wrap">
+        <ul class="main-navigation">
+          <li class="current"><a class="smoothscroll" href="#intro" title="">Inicio</a></li>
+          <li><a class="smoothscroll" href="#about" title="">Acerca de mi</a></li>
+          <li><a class="smoothscroll" href="#resume" title="">Resumen</a></li>
+          <li><a class="smoothscroll" href="#contact" title="">Contacto</a></li>
+          <!-- <li><a href="styles.html" title="">Style Demo</a></li> -->
+        </ul>
+      </nav>
+    </div> <!-- /top-bar -->
+
+    <div class="dropdown" style="padding-left: 90%; ">
+      <span class="form-inline">
+        <select #selectedLang (change)="switchLang(selectedLang.value)"
+        style="font-size: 3rem; color: white;">
+          <option *ngFor="let language of translate.getLangs()"
+          [value]="language" style="background-color: #121212;"
+            [selected]="language === translate.currentLang">
+            {{ language }}
+          </option>
+        </select>
+      </span>
+    </div>
+
+  </div> <!-- /row -->
+</header>
+
+<section id="intro">
+
+  <div class="intro-overlay"></div>
+
+  <div class="intro-content">
+    <div class="row">
+
+      <div class="col-twelve">
+
+        <h5>{{'Hello' | translate}} </h5>
+        <h1>{{'HelloName' | translate}}.</h1>
+
+        <p class="intro-position">
+          <span>{{'Developer' | translate}}</span>
+          <!-- <span>UI/UX Designer</span> -->
+        </p>
+
+        <a class="button stroke smoothscroll" href="#about" title="">
+          {{'About' | translate}}</a>
+
+      </div>
+
+    </div>
+  </div> <!-- /intro-content -->
+
+  <ul class="intro-social">
+    <li><a href="https://www.facebook.com/andy.antonhy/"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="https://github.com/anth97"><i class="fa fa-github"></i></a></li>
+    <li><a href="https://www.linkedin.com/in/andy-antonhy-luya-arcce-823b94218/"><i
+          class="fa fa-linkedin-square"></i></a></li>
+  </ul> <!-- /intro-social -->
+
+</section>
+
+<section id="about">
+
+  <div class="row section-intro">
+    <div class="col-twelve">
+
+      <h5>Acerca de mi</h5>
+      <h1>{{'IntroduceTitle' | translate}}</h1>
+
+      <div class="intro-info">
+
+        <img src="images/profile-pic.jpg" style="width: 95px;" alt="Profile Picture">
+
+        <p class="lead">
+          {{'AboutMe' | translate }}
+          <!-- Hola, me llamo Andy A. Luya y soy Bachiller en Ingeniería de Sistemas. Actualmente me dedico al
+          desarrollo frontend (web, móvil). -->
+        </p>
+      </div>
+
+    </div>
+  </div> <!-- /section-intro -->
+
+  <div class="row about-content">
+
+    <div class="col-six tab-full">
+
+      <h3>{{'ProfileTitle' | translate}}</h3>
+      <!-- <p>Lorem ipsum Qui veniam ut consequat ex ullamco nulla in non ut esse in magna sint minim officia
+        consectetur nisi commodo ea magna pariatur nisi cillum.</p> -->
+
+      <ul class="info-list">
+        <li>
+          <strong>{{'FullNameTitle' | translate}}:</strong>
+          <span>Andy Antonhy Luya Arcce</span>
+        </li>
+        <li>
+          <strong>{{'BirthdayTitle' | translate}}:</strong>
+          <span>{{'Birthday' | translate}}</span>
+        </li>
+        <li>
+          <strong>{{'JobTitle' |translate}}:</strong>
+          <span>{{'Job' |translate}}</span>
+        </li>
+        <!-- <li>
+           <strong>Website:</strong>
+           <span>www.kardswebsite.com</span>
+         </li> -->
+        <li>
+          <strong>{{'EmailTitle' | translate}}:</strong>
+          <span>luya334@gmail.com</span>
+        </li>
+
+      </ul> <!-- /info-list -->
+
+    </div>
+
+    <div class="col-six tab-full">
+
+      <h3>{{'SkillsTitle' |translate}}</h3>
+      <p>{{'Skills' | translate}}</p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <ul>
+              <strong>{{'SoftskillsTitle' | translate}} </strong>
+              {{'SoftskillsList' |translate}}
+            </ul>
+          </div>
+          <div class="col-sm">
+            <ul>
+              <strong>Habilidades Técnologicas</strong>
+              <br>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png"
+                style="width: 45px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="HTML">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png"
+                style="width: 35px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="CSS">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png"
+                style="width: 45px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="Javascript">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png"
+                style="width:45px" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="Angular">
+              <img src="https://www.ruhidesain.com/wp-content/uploads/2017/10/nodejs-logo-e1497443346889.png"
+                style="width: 40px;" data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip" data-bs-html="true" data-bs-title="Nodejs">
+              <img src="https://infinapps.com/wp-content/uploads/2018/10/mongodb-logo.png" style="width: 45px;"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-html="true" data-bs-title="MongoDB">
+              <img src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png" style="width: 30px;"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-html="true" data-bs-title="Flutter">
+              <img src="https://seeklogo.com/images/D/django-logo-F46C1DD95E-seeklogo.com.png" style="width: 35px;"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                data-bs-html="true" data-bs-title="Django">
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="row button-section">
+    <div class="col-twelve">
+      <a href="#contact" title="Hire Me" class="button stroke smoothscroll">
+        {{'HireMeTitle' |translate}}</a>
+      <a title="Download CV" class="button button-primary" (click)="downloadFile()">
+        {{'DownloadCV'|translate}}</a>
+    </div>
+  </div>
+
+</section>
+
+<section id="resume" class="grey-section">
+
+  <!-- <div class="row section-intro">
+    <div class="col-twelve">
+
+      <h5>Resume</h5>
+      <h1>More of my credentials.</h1>
+
+      <p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia
+        nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>
+
+    </div>
+  </div>  --><!-- /section-intro-->
+
+  <div class="row resume-timeline">
+
+    <div class="col-twelve resume-header">
+
+      <h2>{{'WorkExperience' | translate }}</h2>
+
+    </div> <!-- /resume-header -->
+
+    <div class="col-twelve">
+
+      <div class="timeline-wrap">
+
+        <div class="timeline-block">
+
+          <div class="timeline-ico">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+
+          <div class="timeline-header">
+            <h3>{{ 'Position' | translate }}</h3>
+            <p>{{'Date'|translate}}</p>
+          </div>
+
+          <div class="timeline-content">
+            <h4>{{'Company' |translate}} </h4>
+            <ul>
+              <li>{{ 'Description' | translate}}</li>
+              <li>{{ 'Description_0' | translate}}</li>
+              <li>{{ 'Description_01'| translate}}</li>
+            </ul>
+          </div>
+
+        </div> <!-- /timeline-block -->
+
+        <div class="timeline-block">
+
+          <div class="timeline-ico">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+
+          <div class="timeline-header">
+            <h3>{{ 'Position1' | translate }}</h3>
+            <p>{{'Date1'|translate}}</p>
+          </div>
+
+          <div class="timeline-content">
+            <h4>{{'Company1' |translate}} </h4>
+            <ul>
+              <li>{{ 'Description_1' | translate}}</li>
+              <li>{{ 'Description_1.2' | translate}}</li>
+              <li>{{ 'Description_1.3'| translate}}</li>
+            </ul>
+          </div>
+
+        </div> <!-- /timeline-block -->
+
+        <div class="timeline-block">
+
+          <div class="timeline-ico">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+
+          <div class="timeline-header">
+            <h3>{{ 'Position2' | translate }}</h3>
+            <p>{{'Date2'|translate}}</p>
+          </div>
+
+          <div class="timeline-content">
+            <h4>{{'Company2' |translate}} </h4>
+            <ul>
+              <li>{{ 'Description2' | translate}}</li>
+              <li>{{ 'Description2_1' | translate}}</li>
+            </ul>
+          </div>
+
+        </div><!-- /timeline-block -->
+
+      </div> <!-- /timeline-wrap -->
+
+    </div> <!-- /col-twelve -->
+
+  </div> <!-- /resume-timeline -->
+
+  <div class="row resume-timeline">
+
+    <div class="col-twelve resume-header">
+
+      <h2>{{'Education'|translate}}</h2>
+
+    </div> <!-- /resume-header -->
+
+    <div class="col-twelve">
+
+      <div class="timeline-wrap">
+
+        <div class="timeline-block">
+
+          <div class="timeline-ico">
+            <i class="fa fa-briefcase"></i>
+          </div>
+
+          <div class="timeline-header">
+            <h3>{{'Degree' |translate}}</h3>
+            <p>{{'DateEducation'| translate}}</p>
+          </div>
+
+          <div class="timeline-content">
+            <h4>{{'School' |translate}}</h4>
+            <p>{{'DescriptionEducation' |translate}}</p>
+          </div>
+
+        </div> <!-- /timeline-block -->
+
+
+      </div> <!-- /timeline-wrap -->
+
+    </div> <!-- /col-twelve -->
+
+  </div> <!-- /resume-timeline -->
+
+</section>
+
+<section id="cta" class="grey-section">
+
+  <div class="row cta-content">
+
+    <div class="col-twelve section-ads">
+
+      <h2 class="h01"><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Styleshout Recommends
+          Dreamhost.</a></h2>
+
+      <p class="lead">
+        Looking for an awesome and reliable webhosting? Try <a
+          href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.
+        Get <span>$50 off</span> when you sign up with the promocode <span>styleshout</span>.
+        <!-- Simply type	the promocode in the box labeled “Promo Code” when placing your order. -->
+      </p>
+
+      <div class="action">
+        <a class="button button-primary large" href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Sign
+          Up Now</a>
+      </div>
+
+    </div>
+
+  </div> <!-- /cta-content -->
+
+</section> <!-- /cta -->
+
+
+<!-- contact
+ ================================================== -->
+<section id="contact">
+
+  <div class="row section-intro">
+    <div class="col-twelve">
+
+      <h5>{{'ContactTitle' |translate}}</h5>
+      <h1>{{'Contact' |translate}}</h1>
+
+      <p class="lead">
+        {{'ContactDescription' |translate}}
+      </p>
+
+    </div>
+  </div> <!-- /section-intro -->
+
+  <div class="row contact-form">
+
+    <div class="col-twelve">
+
+      <!-- form -->
+      <form name="contactForm" id="contactForm" method="post" action="">
+        <fieldset>
+
+          <div class="form-field">
+            <input name="contactName" type="text" id="contactName" placeholder="Nombre" value="" minlength="2"
+              required="">
+          </div>
+          <div class="form-field">
+            <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+          </div>
+          <div class="form-field">
+            <input name="contactSubject" type="text" id="contactSubject" placeholder="Asunto" value="">
+          </div>
+          <div class="form-field">
+            <textarea name="contactMessage" id="contactMessage" placeholder="Mensaje" rows="10" cols="50"
+              required=""></textarea>
+          </div>
+          <div class="form-field">
+            <button class="submitform">{{'SubmitButton' |translate}}</button>
+            <div id="submit-loader">
+              <div class="text-loader">Enviando...</div>
+              <div class="s-loader">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form> <!-- Form End -->
+
+      <!-- contact-warning -->
+      <div id="message-warning">
+      </div>
+      <!-- contact-success -->
+      <div id="message-success">
+        <i class="fa fa-check"></i>Your message was sent, thank you!<br>
+      </div>
+
+    </div> <!-- /col-twelve -->
+
+  </div> <!-- /contact-form -->
+
+  <div class="row contact-info">
+
+    <div class="col-four tab-full">
+
+      <div class="icon">
+        <i class="icon-pin"></i>
+      </div>
+
+      <h5>{{'VisitMe'|translate}}</h5>
+
+      <p>
+        {{'VisitMeDescription' |translate}}<br>
+      </p>
+
+    </div>
+
+    <div class="col-four tab-full collapse">
+
+      <div class="icon">
+        <i class="icon-mail"></i>
+      </div>
+
+      <h5>{{'EmailMe' |translate}}</h5>
+
+      <p>luya334@gmail.com<br>
+        andy.luya.27@unsch.edu.pe
+      </p>
+
+    </div>
+
+    <div class="col-four tab-full">
+
+      <div class="icon">
+        <i class="icon-phone"></i>
+      </div>
+
+      <h5>{{'CallMe' |translate}}</h5>
+
+      <p>{{'CallMeDescription' |translate}} <br>
+      </p>
+
+    </div>
+
+  </div> <!-- /contact-info -->
+
+
+
+</section>
+
+<script>
+  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+</script>
