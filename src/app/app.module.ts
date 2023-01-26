@@ -7,6 +7,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { MailDialogComponent } from './dialog/mail-dialog/mail-dialog.component';
 
+import {  RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +18,8 @@ import { MailDialogComponent } from './dialog/mail-dialog/mail-dialog.component'
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
