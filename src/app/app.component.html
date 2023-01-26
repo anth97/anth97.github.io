@@ -1,36 +1,31 @@
 <header>
   <div class="row">
 
-    <div class="top-bar">
-      <a class="menu-toggle" href="#"><span>Menu</span></a>
-
+    <div class="top-bar" style="padding-top: 5px;">
       <div class="logo">
         <a href="index.html">andy luya</a>
       </div>
-
-      <nav id="main-nav-wrap">
-        <ul class="main-navigation">
-          <li class="current"><a class="smoothscroll" href="#intro" title="">Inicio</a></li>
-          <li><a class="smoothscroll" href="#about" title="">Acerca de mi</a></li>
-          <li><a class="smoothscroll" href="#resume" title="">Resumen</a></li>
-          <li><a class="smoothscroll" href="#contact" title="">Contacto</a></li>
-          <!-- <li><a href="styles.html" title="">Style Demo</a></li> -->
-        </ul>
-      </nav>
-    </div> <!-- /top-bar -->
-
-    <div class="dropdown" style="padding-left: 90%; ">
-      <span class="form-inline">
+      <a href="#intro" class="button stroke smoothscroll" style="border-color: gray; color:gray;">{{'HeaderHome'
+        |translate}}</a> &nbsp;
+      <a href="#about" class="button stroke smoothscroll" style="border-color: gray; color:gray;">{{'HeaderAbout'
+        |translate}}</a>
+      &nbsp;
+      <a href="#resume" class="button stroke smoothscroll" style="border-color: gray; color:gray;">{{'HeaderResume'
+        |translate}}</a> &nbsp;
+      <a href="#contact" class="button stroke smoothscroll" style="border-color: gray; color:gray;">{{'HeaderContact'
+        |translate}}</a> &nbsp;
+      <a class="button stroke smoothscroll" style="position: absolute; font-weight: bold; border-color: gray; ">
         <select #selectedLang (change)="switchLang(selectedLang.value)"
-        style="font-size: 3rem; color: white;">
-          <option *ngFor="let language of translate.getLangs()"
-          [value]="language" style="background-color: #121212;"
-            [selected]="language === translate.currentLang">
+          style="font-size: 18px; padding-top: 1px;color:gray; cursor: pointer;">
+          <option *ngFor="let language of translate.getLangs()" [value]="language"
+            style="background-color: #121212; cursor: pointer;" [selected]="language === translate.currentLang">
             {{ language }}
           </option>
         </select>
-      </span>
+      </a>
     </div>
+
+
 
   </div> <!-- /row -->
 </header>
@@ -327,6 +322,8 @@
 
   </div> <!-- /resume-timeline -->
 
+
+
 </section>
 
 <section id="cta" class="grey-section">
@@ -378,38 +375,28 @@
 
     <div class="col-twelve">
 
-      <!-- form -->
-      <form name="contactForm" id="contactForm" method="post" action="">
+
+
+      <form [formGroup]="form">
         <fieldset>
 
           <div class="form-field">
-            <input name="contactName" type="text" id="contactName" placeholder="Nombre" value="" minlength="2"
-              required="">
+            <input name="contactName" type="text" placeholder="Nombre" formControlName="from">
           </div>
           <div class="form-field">
-            <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
+            <input name="contactEmail" type="email" placeholder="Email" formControlName="text">
           </div>
           <div class="form-field">
-            <input name="contactSubject" type="text" id="contactSubject" placeholder="Asunto" value="">
+            <input name="contactSubject" type="text" placeholder="Asunto" formControlName="subject">
           </div>
           <div class="form-field">
-            <textarea name="contactMessage" id="contactMessage" placeholder="Mensaje" rows="10" cols="50"
-              required=""></textarea>
+            <textarea name="contactMessage" placeholder="Mensaje" formControlName="html"></textarea>
           </div>
-          <div class="form-field">
-            <button class="submitform">{{'SubmitButton' |translate}}</button>
-            <div id="submit-loader">
-              <div class="text-loader">Enviando...</div>
-              <div class="s-loader">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
-              </div>
-            </div>
-          </div>
-
         </fieldset>
-      </form> <!-- Form End -->
+        <div class="form-field">
+          <button class="submitform" (click)="sendMail()">{{'SubmitButton' | translate}}</button>
+        </div>
+      </form>
 
       <!-- contact-warning -->
       <div id="message-warning">
@@ -474,5 +461,5 @@
 
 <script>
   const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>

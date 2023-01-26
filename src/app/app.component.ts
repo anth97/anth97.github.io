@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { saveAs } from 'file-saver';
+import { MailServiceService } from './services/mail-service.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,21 @@ import { saveAs } from 'file-saver';
 export class AppComponent {
   constructor(
     public translate: TranslateService,
-    private http: HttpClient
+    private http: HttpClient,
+    private mailServiceService: MailServiceService,
+    private formBuilder: FormBuilder,
   ) {
     translate.addLangs(['en', 'es']);
     translate.setDefaultLang('en');
     translate.use('en');
-    console.log(translate.currentLang);
   }
+
+  public form = this.formBuilder.group({
+    from: ['', Validators.required], //alias name
+    subject: ['', Validators.required], //alias subject
+    text: ['', [Validators.required, Validators.email]], //alias email
+    html: ['', Validators.required]  //alias message
+  })
 
   switchLang(lang: string) {
     this.translate.use(lang);
@@ -46,60 +56,35 @@ export class AppComponent {
         saveAs(res, 'Resume-Es.pdf');
       });
   }
+
+  sendMail() {
+    if (this.form.invalid) {
+      if (this.translate.currentLang == 'en') {
+        alert('Please fill all the fields');
+        return
+      }
+      alert('Por favor llene todos los campos');
+      return;
+    }
+    const data = {
+      from: this.form.controls.from.value,
+      subject: this.form.controls.subject.value,
+      text: this.form.controls.text.value,
+      html: this.form.controls.html.value
+    }
+    this.mailServiceService.sendMail(data).subscribe(() => {
+      this.form.reset();
+      if (this.translate.currentLang == 'en') {
+        alert('Mail sent successfully');
+        return
+      }
+      alert('Correo enviado exitosamente');
+    });
+  }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+
+
 }
-
-
-
-/* <!-- <nav class="navbar navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand">
-      {{'Sitetitle' | translate }}
-    </a>
-    <span class="form-inline">
-      <select class="form-control" #selectedLang (change)="switchLang(selectedLang.value)">
-        <option *ngFor="let language of translate.getLangs()" [value]="language"
-          [selected]="language === translate.currentLang">
-          {{ language }}
-        </option>
-      </select>
-    </span>
-  </div>
-</nav>
-
-<div class="container">
-  <form>
-
-    <div class="form-group">
-      <label>{{'Name' | translate}}</label>
-      <input type="text" class="form-control">
-      <small class="text-danger">{{'NameError' | translate}}</small>
-    </div>
-
-    <div class="form-group">
-      <label>{{'Email' | translate}}</label>
-      <input type="email" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>{{'PhoneNo' | translate}}</label>
-      <input type="tel" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>{{'Password' | translate}}</label>
-      <input type="password" class="form-control">
-    </div>
-
-    <div class="form-group">
-      <label>{{'Bio' | translate}}</label>
-      <textarea rows="3" class="form-control"></textarea>
-    </div>
-
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input">
-      <label class="form-check-label">{{'TermsConditions' | translate}}</label>
-    </div>
-
-    <button type="submit" class="btn btn-block btn-danger">{{'Submit' | translate}}</button>
-  </form>
-</div> --> */
