@@ -68,5 +68,10 @@
     "EmailMeDescription": "Email: luya334@gmail.com",
     "VisitMe": "VISIT ME",
     "VisitMeDescription": "Address: AV. 9 de Diciembre 137, Ayacucho, Perú",
-    "Footer": "Andy A. Luya © 2020"
+    "Footer": "Andy A. Luya © 2020",
+
+    "HeaderHome": "Home",
+    "HeaderAbout": "About",
+    "HeaderResume": "Resume",
+    "HeaderContact": "Contact"
 }
