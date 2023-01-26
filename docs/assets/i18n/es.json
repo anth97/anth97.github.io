@@ -1,6 +1,6 @@
 {
     "Hello": "Hola Mundo!",
-    "HelloName": "I'm Andy A. Luya",
+    "HelloName": "Hola, soy Andy Luya",
     "Developer": "Soy un Desarrollador Web",
     "About": "MÁS ACERCA DE MI",
     "IntroduceTitle": "Me presento",
@@ -68,5 +68,11 @@
     "EmailMeDescription": "Email: luya334@gmail.com",
     "VisitMe": "DÓNDE ENCONTRARME",
     "VisitMeDescription": "Dirección: Av. 9 de Diciembre 137, Ayacucho, Perú",
-    "Footer": "Andy A. Luya © 2020"
+    "Footer": "Andy A. Luya © 2020",
+
+    "HeaderHome": "Inicio",
+    "HeaderAbout": "Acerca de mi",
+    "HeaderResume": "Resumen",
+    "HeaderContact": "Contacto"
+
 }

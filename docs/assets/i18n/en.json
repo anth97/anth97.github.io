@@ -54,7 +54,7 @@
     "Degree": "Bachelor in Systems Engineering ",
     "DateEducation": "2015 - 2021",
     "DescriptionEducation": "Software Engineering, Object Oriented Programming (OOP), Computer Networks, Information Security,  Database Administration, Web Development.",
-    "ContactTitle": "CONTATC",
+    "ContactTitle": "CONTACT",
     "Contact": "I'd Love To Hear From You.",
     "ContactDescription": "Do you want to contact me for a project, idea or collaboration?",
     "NameInput": "Name",
@@ -68,5 +68,10 @@
     "EmailMeDescription": "Email: luya334@gmail.com",
     "VisitMe": "VISIT ME",
     "VisitMeDescription": "Address: AV. 9 de Diciembre 137, Ayacucho, Perú",
-    "Footer": "Andy A. Luya © 2020"
+    "Footer": "Andy A. Luya © 2020",
+
+    "HeaderHome": "Home",
+    "HeaderAbout": "About",
+    "HeaderResume": "Resume",
+    "HeaderContact": "Contact"
 }
