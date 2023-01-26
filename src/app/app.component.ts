@@ -27,7 +27,8 @@ export class AppComponent {
     from: ['', Validators.required], //alias name
     subject: ['', Validators.required], //alias subject
     text: ['', [Validators.required, Validators.email]], //alias email
-    html: ['', Validators.required]  //alias message
+    html: ['', Validators.required],  //alias message
+    captcha: ['']
   })
 
   switchLang(lang: string) {
@@ -66,11 +67,21 @@ export class AppComponent {
       alert('Por favor llene todos los campos');
       return;
     }
+
+    if (this.form.controls.captcha.value == '') {
+      if (this.translate.currentLang == 'en') {
+        alert('Please verify that you are not a robot');
+        return
+      }
+      alert('Por favor verifique que no es un robot');
+      return;
+    }
     const data = {
       from: this.form.controls.from.value,
       subject: this.form.controls.subject.value,
       text: this.form.controls.text.value,
-      html: this.form.controls.html.value
+      html: this.form.controls.html.value,
+      captcha: this.form.controls.captcha.value
     }
     this.mailServiceService.sendMail(data).subscribe(() => {
       this.form.reset();
@@ -83,7 +94,7 @@ export class AppComponent {
   }
 
   resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
+    return this.form.controls.captcha.setValue(captchaResponse);
   }
 
 
