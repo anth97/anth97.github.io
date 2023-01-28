@@ -80,7 +80,7 @@ export class AppComponent {
       from: this.form.controls.from.value,
       subject: this.form.controls.subject.value,
       text: this.form.controls.text.value,
-      html: this.form.controls.html.value,
+      html: `${this.form.controls.from} ${this.form.controls.text} ${this.form.controls.html.value} `,
       captcha: this.form.controls.captcha.value
     }
     this.mailServiceService.sendMail(data).subscribe(() => {
