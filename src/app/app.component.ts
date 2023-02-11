@@ -61,10 +61,10 @@ export class AppComponent {
   sendMail() {
     if (this.form.invalid) {
       if (this.translate.currentLang == 'en') {
-        alert('Please fill all the fields');
+        alert('Please fill all the fields correctly');
         return
       }
-      alert('Por favor llene todos los campos');
+      alert('Por favor llene todos los campos correctamente');
       return;
     }
 

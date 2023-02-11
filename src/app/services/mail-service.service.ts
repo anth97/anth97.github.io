@@ -11,7 +11,11 @@ export class MailServiceService {
   ) { }
 
   public sendMail(object: any) {
-    return this.http.post('http://localhost:3000/send', object)
+    return this.http.post('http://44.204.110.255/send/', object, {
+      headers:{
+        'Access-Control-Allow-Origin': '*',
+      }
+    })
   }
 
 }
