@@ -11,7 +11,7 @@ export class MailServiceService {
   ) { }
 
   public sendMail(object: any) {
-    return this.http.post('http://44.204.110.255/send/', object, {
+    return this.http.post('https://www.anth97.com/send/', object, {
       headers:{
         'Access-Control-Allow-Origin': '*',
       }
