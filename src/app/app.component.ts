@@ -19,8 +19,8 @@ export class AppComponent {
     private formBuilder: FormBuilder,
   ) {
     translate.addLangs(['en', 'es']);
-    translate.setDefaultLang('en');
-    translate.use('en');
+    translate.setDefaultLang('es');
+    translate.use('es');
   }
 
   public form = this.formBuilder.group({
@@ -80,7 +80,9 @@ export class AppComponent {
       from: this.form.controls.from.value,
       subject: this.form.controls.subject.value,
       text: this.form.controls.text.value,
-      html: `${this.form.controls.from} ${this.form.controls.text} ${this.form.controls.html.value} `,
+      html: `<p>From: ${this.form.controls.from.value}</p>
+      <p>Email: ${this.form.controls.text.value}</p>
+      <p>Message: ${this.form.controls.html.value}</p>`,
       captcha: this.form.controls.captcha.value
     }
     this.mailServiceService.sendMail(data).subscribe(() => {
