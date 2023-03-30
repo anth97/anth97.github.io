@@ -4,6 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { saveAs } from 'file-saver';
+import Swal from 'sweetalert2';
 import { MailServiceService } from './services/mail-service.service';
 
 @Component({
@@ -59,21 +60,53 @@ export class AppComponent {
   }
 
   sendMail() {
+
     if (this.form.invalid) {
       if (this.translate.currentLang == 'en') {
-        alert('Please fill all the fields correctly');
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Please fill in all the fields correctly',
+          customClass: {
+            title: 'my-custom-title-class',
+          }
+        })
+
         return
       }
-      alert('Por favor llene todos los campos correctamente');
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: 'Por favor llene todos los campos correctamente',
+        customClass: {
+          title: 'my-custom-title-class',
+        }
+      })
       return;
     }
 
     if (this.form.controls.captcha.value == '') {
       if (this.translate.currentLang == 'en') {
-        alert('Please verify that you are not a robot');
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Please verify that you are not a robot',
+          customClass: {
+            title: 'my-custom-title-class',
+
+          }
+        })
         return
       }
-      alert('Por favor verifique que no es un robot');
+      Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: 'Por favor verifique que no es un robot',
+        customClass: {
+          title: 'my-custom-title-class',
+        }
+      })
+
       return;
     }
     const data = {
@@ -88,10 +121,24 @@ export class AppComponent {
     this.mailServiceService.sendMail(data).subscribe(() => {
       this.form.reset();
       if (this.translate.currentLang == 'en') {
-        alert('Mail sent successfully');
+        Swal.fire({
+          icon: 'success',
+          title: '¡Success!',
+          text: 'Email sent successfully',
+          customClass: {
+            title: 'my-custom-title-class',
+          }
+        })
         return
       }
-      alert('Correo enviado exitosamente');
+      Swal.fire({
+        icon: 'success',
+        title: '¡Éxito!',
+        text: 'Correo enviado correctamente',
+        customClass: {
+          title: 'my-custom-title-class',
+        }
+      })
     });
   }
 
